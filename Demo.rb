@@ -5,16 +5,20 @@ class SudokuSolver
   def initialize(grid)
     @grid = grid
   end
-
-  def display_grid
-    (0..8).each do |row|
-      (0..8).each do |col|
-        print "#{@grid[row][col]} "
+  
+  def display_grid()
+    i = 1
+    @grid.each do |row|
+      puts "#{row[0]} #{row[1]} #{row[2]} | #{row[3]} #{row[4]} #{row[5]} | #{row[6]} #{row[7]} #{row[8]}"
+      if i == 3 || i == 6
+        puts "---------------------"
       end
-      puts
+      i += 1
     end
   end
 end
+
+
 
 # Create the input grid
 input_grid = [
@@ -29,8 +33,10 @@ input_grid = [
   [0, 3, 7, 2, 0, 4, 6, 0, 0]
 ]
 
-  
-show = SudokuSolver.new(input_grid)
+# Create an instance of SudokuSolver
+default = SudokuSolver.new(input_grid)
+
+# Display the input grid
 puts "Your free Sudoku Puzzle. (EASY)".light_blue
 puts
-show.display_grid
+default.display_grid()
